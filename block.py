@@ -13,7 +13,7 @@ class Block:
 
     def __init__(self, data):
         self.data = data
-#hashing algo 
+#hashing algorithm
     def hash(self):
         h = hashlib.sha256()
         h.update(
@@ -29,8 +29,8 @@ class Block:
         return "Block Hash: " + str(self.hash()) + "\nBlockNo: " + str(self.blockNo) + "\nBlock Data: " + str(self.data) + "\nHashes: " + str(self.nonce) + "\n--------------"
 
 class Blockchain:
-
-    diff = 20
+#reducing difficulty of creating blocks
+    diff = 10
     maxNonce = 2**32
     target = 2 ** (256-diff)
 
@@ -55,12 +55,14 @@ class Blockchain:
                 block.nonce += 1
 
 blockchain = Blockchain()
+#loops
 
-for n in range(10):
+#No. of blocks to create
+z =  input("no of blocks to create")
+for n in range(z):
     blockchain.mine(Block("Block " + str(n+1)))
 
 while blockchain.head != None:
     print(blockchain.head)
     blockchain.head = blockchain.head.next
-    
-#FULL COMMENT CHEYYAN VAYYA    
+
