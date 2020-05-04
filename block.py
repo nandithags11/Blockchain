@@ -58,8 +58,8 @@ blockchain = Blockchain()
 #loops
 
 #No. of blocks to create
-
-for n in range(10):
+n = input(Number of blocks to generate)
+for n in range(n):
     blockchain.mine(Block("Block " + str(n+1)))
 
 while blockchain.head != None:
